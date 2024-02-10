@@ -78,16 +78,24 @@ vim.opt.smartindent = true
 -- undodir
 vim.opt.swapfile = false
 vim.opt.backup = false
-vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
-vim.opt.undofile = true
+vim.opt.undofile = false
 
--- [[ Highlight on yank ]]
--- See `:help vim.highlight.on_yank()`
-local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
-vim.api.nvim_create_autocmd('TextYankPost', {
-    callback = function()
-        vim.highlight.on_yank()
-    end,
-    group = highlight_group,
-    pattern = '*',
-})
+-- [[ Basic Keymaps ]]
+-- Keymaps for better default experience
+-- See `:help vim.keymap.set()`
+
+vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
+
+-- Page up/down movement
+vim.keymap.set({ 'n', 'v' }, '<C-d>', '<C-d>zz', { silent = true })
+vim.keymap.set({ 'n', 'v' }, '<C-u>', '<C-u>zz', { silent = true })
+
+-- Buffer remaps
+vim.keymap.set({ 'n' }, '<Space>x', ':bd<CR>', { silent = true, desc = 'Buffer Delete' })
+
+-- Remap for dealing with word wrap
+vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+
+-- Ergonomic search for word
+vim.keymap.set("n", "ñ", "/\\c")

@@ -4,6 +4,10 @@
 
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 
+-- Page up/down movement
+vim.keymap.set({ 'n', 'v' }, '<C-d>', '<C-d>zz', { silent = true })
+vim.keymap.set({ 'n', 'v' }, '<C-u>', '<C-u>zz', { silent = true })
+
 -- Buffer remaps
 vim.keymap.set({ 'n' }, '<Space>x', ':bd<CR>', { silent = true, desc = 'Buffer Delete' })
 
@@ -17,14 +21,11 @@ vim.keymap.set("n", "ñ", "/\\c")
 -- File formatting keymaps
 vim.keymap.set("n", "<leader>fi", function() vim.lsp.buf.format() end, { desc = '[F]ormat [I]ndentation' })
 
--- Transform file
--- NOTE: Applies only to CSV files
-vim.keymap.set("n", "<leader>T,", ":%!column -ts','<CR>", { desc = '[T]ransform [,] separated file' })
-vim.keymap.set("n", "<leader>T ", ":%s/ \\+/,/g<CR>", { desc = '[T]ransform [ ] separated file' })
-vim.keymap.set("n", "<leader>T;", ":%s/;/,/g<CR>", { desc = '[T]ransform [;] separated file' })
-
 -- Diagnostic keymaps
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
+
+-- Align to char
+vim.keymap.set({"n", "v"}, "<leader>a", ":Tabularize /", { desc = '[A]lign to char' })
