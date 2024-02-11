@@ -4,6 +4,8 @@ end
 
 #fish_vi_key_bindings
 fish_hybrid_key_bindings
+# fish fzf bindings
+fzf_configure_bindings --directory=\ct
 
 ###########
 # Aliases #
@@ -66,6 +68,7 @@ end
 ###########
 # Exports #
 ###########
-
 export FZF_DEFAULT_COMMAND="fd --type f --type d . \$dir"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
+eval "$(/opt/homebrew/bin/brew shellenv)"
