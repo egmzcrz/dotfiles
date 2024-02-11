@@ -192,3 +192,7 @@
        :config
        ;;literate
        (default +bindings +smartparens))
+
+
+;; splash screen
+(setq fancy-splash-image "/Users/henry/Library/CloudStorage/Dropbox/docs/img/harold calabaza/harold-cabetza tmp.png")
