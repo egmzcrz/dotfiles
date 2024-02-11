@@ -1,4 +1,19 @@
-ln -svF $(pwd)/vim/.vimrc ~/.vimrc
-ln -svF $(pwd)/editrc/.editrc ~/.editrc
+#!/bin/bash
 
-ln -svF $(pwd)/nvim-minimal ~/.config/nvim-minimal
+SRC_DIR="$(pwd)"
+
+TARGET_FILES=(
+	".vimrc"
+	".editrc"
+	".ignore"
+	".config/nvim-minimal"
+	".config/nvim"
+	".config/kitty"
+	".config/fish"
+	".config/doom"
+)
+
+for dotfile in "${TARGET_FILES[@]}";do
+	rm -rf "${HOME}/${dotfile}"
+	ln -svf "${SRC_DIR}/${dotfile}" "${HOME}/${dotfile}"
+done
