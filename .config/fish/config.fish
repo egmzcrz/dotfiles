@@ -2,6 +2,10 @@ if status is-interactive
   # Commands to run in interactive sessions can go here
 end
 
+# java home
+alias java11="set -x JAVA_HOME (/usr/libexec/java_home -v11)"
+alias java21="set -x JAVA_HOME (/usr/libexec/java_home -v21)"
+
 #fish_vi_key_bindings
 fish_hybrid_key_bindings
 # fish fzf bindings
@@ -28,9 +32,8 @@ alias fishrc='nvim ~/.config/fish/config.fish'
 alias kittyrc='nvim ~/.config/kitty/kitty.conf'
 
 # quick access
-alias dropbox="cd $DROPBOX && search_files"
-alias semovi="cd $DROPBOX/semovi/ && search_files"
-alias cna="cd $DROPBOX/cna && search_files"
+alias cdcloud="cd $DROPBOX && search_dirs"
+alias sfcloud="cd $DROPBOX && search_files"
 alias notas="cd $DROPBOX/notas/ && goto_file"
 alias org="open /Applications/Emacs.app --args "$DROPBOX/notas/org/""
 alias bin="cd /Users/henry/Library/CloudStorage/Dropbox/bin/ && search_files"
