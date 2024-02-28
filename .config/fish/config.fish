@@ -32,8 +32,10 @@ alias fishrc='nvim ~/.config/fish/config.fish'
 alias kittyrc='nvim ~/.config/kitty/kitty.conf'
 
 # quick access
-alias cdcloud="cd $DROPBOX && search_dirs"
-alias sfcloud="cd $DROPBOX && search_files"
+alias cloud="cd $DROPBOX"
+alias dcloud="cd $DROPBOX && search_dirs"
+alias fcloud="cd $DROPBOX && search_files"
+alias ocloud="cd $DROPBOX && goto_file"
 alias notas="cd $DROPBOX/notas/ && goto_file"
 alias org="open /Applications/Emacs.app --args "$DROPBOX/notas/org/""
 alias bin="cd /Users/henry/Library/CloudStorage/Dropbox/bin/ && search_files"
@@ -94,7 +96,7 @@ end
 ###########
 # Exports #
 ###########
-export FZF_DEFAULT_COMMAND="fd --hidden --type f --type d . \$dir"
+export FZF_DEFAULT_COMMAND="fd -d10 --hidden --type f --type d . \$dir"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
