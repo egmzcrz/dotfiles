@@ -6,6 +6,7 @@ TARGET_FILES=(
 	".vimrc"
 	".editrc"
 	".ignore"
+	".fdignore"
 	".config/nvim-minimal"
 	".config/nvim"
 	".config/kitty"

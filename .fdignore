@@ -1,0 +1,5 @@
+!Library
+Library/*
+!Library/CloudStorage
+Library/CloudStorage/*
+!Library/CloudStorage/Dropbox
