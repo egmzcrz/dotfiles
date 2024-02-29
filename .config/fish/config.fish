@@ -14,6 +14,8 @@ fzf_configure_bindings --directory=\ct
 ###########
 # Aliases #
 ###########
+set -gx EDITOR vim
+set -gx VISUAL vim
 set DROPBOX /Users/henry/Library/CloudStorage/Dropbox
 
 # fish source
@@ -25,21 +27,19 @@ alias python='python3'
 alias ll='exa --long --icons'
 
 # config files
-alias dotfiles='cd ~/dotfiles/ && goto_file'
-alias nvimrc='cd ~/.config/nvim/ && goto_file'
+alias dotfiles='cd ~/dotfiles/'
+alias nvimrc='cd ~/.config/nvim/'
 alias vimrc='vim ~/.config/nvim-minimal/init.lua'
 alias fishrc='nvim ~/.config/fish/config.fish'
 alias kittyrc='nvim ~/.config/kitty/kitty.conf'
 
 # quick access
-alias cloud="cd $DROPBOX"
-alias dcloud="cd $DROPBOX && search_dirs"
-alias fcloud="cd $DROPBOX && search_files"
-alias ocloud="cd $DROPBOX && goto_file"
-alias notas="cd $DROPBOX/notas/ && goto_file"
-alias org="open /Applications/Emacs.app --args "$DROPBOX/notas/org/""
-alias bin="cd /Users/henry/Library/CloudStorage/Dropbox/bin/ && search_files"
-alias pyscard='cd "/Users/henry/Library/CloudStorage/Dropbox/dev/CDMX Ticketing Software/Pyscard scripts/" && search_files'
+alias cl="cd $DROPBOX"
+alias notas="cd $DROPBOX/notas/trabajo && nvim ."
+alias bin="cd $DROPBOX/bin/ && nvim ."
+
+alias org="open '/Applications/Emacs.app' --args '$DROPBOX/notas/org/'"
+alias pyscard="cd '$DROPBOX/dev/CDMX Ticketing Software/Pyscard scripts/' && nvim ."
 alias podata='eigencard.py -c "Reader\\(2\\)"'
 
 function zipper
@@ -66,7 +66,7 @@ function boxcpp
   end
 end
 
-function search_files
+function ff
   export FZF_DEFAULT_COMMAND="fd --hidden --type f . \$dir"
   set path (fzf --preview "bat --color=always {}")
   if test -n "$path"
@@ -75,7 +75,7 @@ function search_files
   export FZF_DEFAULT_COMMAND="fd --hidden --type f --type d . \$dir"
 end
 
-function goto_file
+function gf
   export FZF_DEFAULT_COMMAND="fd --hidden --type f . \$dir"
   set path (fzf --preview "bat --color=always {}")
   if test -n "$path"
@@ -84,7 +84,7 @@ function goto_file
   export FZF_DEFAULT_COMMAND="fd --hidden --type f --type d . \$dir"
 end
 
-function search_dirs
+function gd
   export FZF_DEFAULT_COMMAND="fd --hidden --type d . \$dir"
   set path (fzf --preview "exa --tree --level 3 {}")
   if test -n "$path"
@@ -96,7 +96,7 @@ end
 ###########
 # Exports #
 ###########
-export FZF_DEFAULT_COMMAND="fd -d10 --hidden --type f --type d . \$dir"
+export FZF_DEFAULT_COMMAND="fd --hidden --type f --type d . \$dir"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 eval "$(/opt/homebrew/bin/brew shellenv)"

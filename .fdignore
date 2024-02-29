@@ -3,3 +3,4 @@ Library/*
 !Library/CloudStorage
 Library/CloudStorage/*
 !Library/CloudStorage/Dropbox
+.DS_Store

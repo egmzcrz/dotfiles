@@ -101,4 +101,4 @@ vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = tr
 vim.keymap.set("n", "ñ", "/\\c")
 
 -- colorscheme
-vim.cmd.colorscheme('desert')
+--vim.cmd.colorscheme('desert')
