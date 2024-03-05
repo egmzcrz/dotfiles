@@ -44,9 +44,23 @@ require('lazy').setup({
     -- Markdown
     'preservim/vim-markdown',
 
+    -- Toggleterm
     {
         "akinsho/toggleterm.nvim", version = "*", config = true
     },
+
+    -- Latex
+    {
+        "lervag/vimtex",
+        init = function()
+            -- Use init for configuration, don't use the more common "config".
+            vim.g.vimtex_view_method = 'skim'
+        end
+    },
+
+
+
+
 
     -- NOTE: This is where your plugins related to LSP can be installed.
     --  The configuration is done below. Search for lspconfig to find it below.
