@@ -14,8 +14,6 @@ fzf_configure_bindings --directory=\ct
 ###########
 # Aliases #
 ###########
-set -gx EDITOR vim
-set -gx VISUAL vim
 set DROPBOX /Users/henry/Library/CloudStorage/Dropbox
 
 # fish source
@@ -100,3 +98,5 @@ export FZF_DEFAULT_COMMAND="fd --hidden --type f --type d . \$dir"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
+set -gx EDITOR nvim
+set -gx VISUAL nvim
