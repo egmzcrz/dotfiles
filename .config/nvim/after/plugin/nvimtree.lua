@@ -17,5 +17,5 @@ require("nvim-tree").setup({
 })
 
 -- Open File Explorer (Nvim Tree)
-vim.keymap.set("n", "<leader>o", ":NvimTreeFocus<CR>",
+vim.keymap.set("n", "<leader>o", ":NvimTreeToggle<CR>",
     { desc = '[O]pen file explorer', silent = true })
