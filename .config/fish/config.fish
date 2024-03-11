@@ -1,50 +1,70 @@
-if status is-interactive
-  # Commands to run in interactive sessions can go here
-end
+############################################################
+#                 Vim + Emacs keybindings                  #
+############################################################
+fish_hybrid_key_bindings
 
-# java home
+############################################################
+#                 FZF (PatrickF1/fzf.fish)                 #
+############################################################
+# To install keybindings and fuzzy completion: /opt/homebrew/opt/fzf/install
+bind -M insert "©" fzf-cd-widget # to use ALT-C properly on MAC-OS
+# FZF defaults
+set -gx FZF_DEFAULT_COMMAND "fd --type f --hidden --follow --exclude .git --exclude node_modules . \$dir"
+set -gx FZF_DEFAULT_OPTS "--height 80% --layout=reverse --border --preview 'bat --color=always {}'"
+# CTRL-T command
+set -gx FZF_CTRL_T_COMMAND $FZF_DEFAULT_COMMAND
+# ALT-C command
+set -gx FZF_ALT_C_COMMAND "fd --type d --hidden --follow --exclude .git --exclude node_modules . \$dir"
+set -gx FZF_ALT_C_OPTS "--preview 'exa --icons {}'"
+# CTRL-R command
+set -gx FZF_CTRL_R_OPTS "
+--preview 'echo {}' --preview-window up:3:hidden:wrap
+--bind 'ctrl-/:toggle-preview'
+--bind 'ctrl-y:execute-silent(echo -n {2..} | pbcopy)+abort'
+--color header:italic
+--header 'Press CTRL-Y to copy command into clipboard'"
+
+############################################################
+#                  Nvim as default editor                  #
+############################################################
+set -gx EDITOR nvim
+set -gx VISUAL nvim
+
+############################################################
+#                          ALIAS                           #
+############################################################
+# source this config file
+alias so='source ~/.config/fish/config.fish'
+# Java home
 alias java11="set -x JAVA_HOME (/usr/libexec/java_home -v11)"
 alias java21="set -x JAVA_HOME (/usr/libexec/java_home -v21)"
-
-#fish_vi_key_bindings
-fish_hybrid_key_bindings
-# fish fzf bindings
-fzf_configure_bindings --directory=\ct
-
-###########
-# Aliases #
-###########
-set DROPBOX /Users/henry/Library/CloudStorage/Dropbox
-
-# fish source
-alias so='source ~/.config/fish/config.fish'
-
-# bin aliases
+# nvim minimal
 alias vim='nvim --clean -u /Users/henry/.config/nvim-minimal/init.lua'
+# python3
 alias python='python3'
+# exa
 alias ll='exa --long --icons'
-
+# eigencard as podata
+alias podata='eigencard.py -c "Reader\\(2\\)"'
 # config files
-alias dotfiles='cd ~/dotfiles/'
-alias nvimrc='cd ~/.config/nvim/'
+alias dotfiles='cd ~/dotfiles/ && nvim .'
+alias nvimrc='cd ~/.config/nvim/ && nvim .'
 alias vimrc='vim ~/.config/nvim-minimal/init.lua'
 alias fishrc='nvim ~/.config/fish/config.fish'
 alias kittyrc='nvim ~/.config/kitty/kitty.conf'
-
-# quick access
-alias cl="cd $DROPBOX"
+# dropbox quick access
+set DROPBOX /Users/henry/Library/CloudStorage/Dropbox
+alias cl="cd $DROPBOX && pwd && ll"
 alias notas="cd $DROPBOX/notas/trabajo && nvim ."
 alias bin="cd $DROPBOX/bin/ && nvim ."
-
 alias org="open '/Applications/Emacs.app' --args '$DROPBOX/notas/org/'"
 alias pyscard="cd '$DROPBOX/dev/CDMX Ticketing Software/Pyscard scripts/' && nvim ."
-alias podata='eigencard.py -c "Reader\\(2\\)"'
 
-function zipper
-  if set -q argv[1]
-    zip -r output.zip $argv[1] -x ".*" -x "__MACOSX"
-  else
-    zip -r output.zip . -x ".*" -x "__MACOSX"
+# Find file and cd to parent dir
+function ff
+  set path (fzf)
+  if test -n "$path"
+    cd $(dirname $path)
   end
 end
 
@@ -64,39 +84,10 @@ function boxcpp
   end
 end
 
-function ff
-  export FZF_DEFAULT_COMMAND="fd --hidden --type f . \$dir"
-  set path (fzf --preview "bat --color=always {}")
-  if test -n "$path"
-    cd $(dirname $path)
-  end
-  export FZF_DEFAULT_COMMAND="fd --hidden --type f --type d . \$dir"
+# zip without MAC-OS junk
+function zipper
+  set filename (basename $argv[1])
+  zip -x \*.DS_Store -x \*__MACOSX -r $filename.zip $argv[1]
 end
-
-function gf
-  export FZF_DEFAULT_COMMAND="fd --hidden --type f . \$dir"
-  set path (fzf --preview "bat --color=always {}")
-  if test -n "$path"
-    nvim $path
-  end
-  export FZF_DEFAULT_COMMAND="fd --hidden --type f --type d . \$dir"
-end
-
-function gd
-  export FZF_DEFAULT_COMMAND="fd --hidden --type d . \$dir"
-  set path (fzf --preview "exa --tree --level 3 {}")
-  if test -n "$path"
-    cd $path
-  end
-  export FZF_DEFAULT_COMMAND="fd --hidden --type f --type d . \$dir"
-end
-
-###########
-# Exports #
-###########
-export FZF_DEFAULT_COMMAND="fd --hidden --type f --type d . \$dir"
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
-set -gx EDITOR nvim
-set -gx VISUAL nvim
