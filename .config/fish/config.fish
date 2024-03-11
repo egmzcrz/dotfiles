@@ -10,12 +10,12 @@ fish_hybrid_key_bindings
 bind -M insert "©" fzf-cd-widget # to use ALT-C properly on MAC-OS
 # FZF defaults
 set -gx FZF_DEFAULT_COMMAND "fd --type f --hidden --follow --exclude .git --exclude node_modules . \$dir"
-set -gx FZF_DEFAULT_OPTS "--height 80% --layout=reverse --border --preview 'bat --color=always {}'"
+set -gx FZF_DEFAULT_OPTS "--height 99% --layout=reverse --border --preview-window down:15 --preview 'bat --color=always {}'"
 # CTRL-T command
 set -gx FZF_CTRL_T_COMMAND $FZF_DEFAULT_COMMAND
 # ALT-C command
 set -gx FZF_ALT_C_COMMAND "fd --type d --hidden --follow --exclude .git --exclude node_modules . \$dir"
-set -gx FZF_ALT_C_OPTS "--preview 'exa --icons {}'"
+set -gx FZF_ALT_C_OPTS "--preview 'exa --long --header --icons {}'"
 # CTRL-R command
 set -gx FZF_CTRL_R_OPTS "
 --preview 'echo {}' --preview-window up:3:hidden:wrap
