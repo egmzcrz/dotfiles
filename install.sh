@@ -5,7 +5,6 @@ SRC_DIR="$(pwd)"
 TARGET_FILES=(
 	".vimrc"
 	".editrc"
-	".ignore"
 	".fdignore"
 	".config/nvim-minimal"
 	".config/nvim"
