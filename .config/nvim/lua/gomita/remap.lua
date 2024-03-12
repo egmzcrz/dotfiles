@@ -18,6 +18,9 @@ vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = tr
 -- Ergonomic search for word
 vim.keymap.set("n", "ñ", "/\\c")
 
+-- Turn off highlight until the next search
+vim.keymap.set("n", "<Space>h", ":noh<CR>")
+
 -- File formatting keymaps
 vim.keymap.set("n", "<leader>fi", function() vim.lsp.buf.format() end, { desc = '[F]ormat [I]ndentation' })
 

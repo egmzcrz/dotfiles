@@ -100,5 +100,8 @@ vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = tr
 -- Ergonomic search for word
 vim.keymap.set("n", "ñ", "/\\c")
 
+-- Turn off highlight until the next search
+vim.keymap.set("n", "<Space>h", ":noh<CR>")
+
 -- colorscheme
 --vim.cmd.colorscheme('desert')
