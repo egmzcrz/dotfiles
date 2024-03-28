@@ -15,7 +15,7 @@ set -gx FZF_DEFAULT_OPTS "--height 99% --layout=reverse --border --preview-windo
 set -gx FZF_CTRL_T_COMMAND $FZF_DEFAULT_COMMAND
 # ALT-C command
 set -gx FZF_ALT_C_COMMAND "fd --type d --hidden --follow --exclude .git --exclude node_modules . \$dir"
-set -gx FZF_ALT_C_OPTS "--preview 'exa --long --header --icons {}'"
+set -gx FZF_ALT_C_OPTS "--preview 'exa --group-directories-first --long --header --icons {}'"
 # CTRL-R command
 set -gx FZF_CTRL_R_OPTS "
 --preview 'echo {}' --preview-window up:3:hidden:wrap
@@ -43,7 +43,7 @@ alias vim='nvim --clean -u /Users/henry/.config/nvim-minimal/init.lua'
 # python3
 alias python='python3'
 # exa
-alias ll='exa --long --icons'
+alias ll='exa --long --icons --group-directories-first'
 # eigencard as podata
 alias podata='eigencard.py -c "Reader\\(2\\)"'
 # config files
