@@ -76,6 +76,14 @@ function boxshell
   end
 end
 
+function boxtex
+  if set -q argv[2]
+    echo $argv[1] | boxes -d tex-box -a hc -s $argv[2]
+  else
+    echo $argv[1] | boxes -d tex-box -a hc
+  end
+end
+
 function boxcpp
   if set -q argv[2]
     echo $argv[1] | boxes -d jstone -a hc -s $argv[2]
