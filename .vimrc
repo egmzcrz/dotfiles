@@ -39,7 +39,7 @@ set wrapscan               " Searches wrap around end-of-file.
 set nowrap
 set report      =0         " Always report changed lines.
 set synmaxcol   =200       " Only highlight the first 200 columns.
-set clipboard  +=unnamedplus
+set clipboard   =unnamed
 
 set list                   " Show non-printable characters.
 if has('multi_byte') && &encoding ==# 'utf-8'
