@@ -37,7 +37,9 @@ set -gx VISUAL nvim
 alias so='source ~/.config/fish/config.fish'
 # Java home
 alias java11="set -x JAVA_HOME (/usr/libexec/java_home -v11)"
+alias java17="set -x JAVA_HOME (/usr/libexec/java_home -v17)"
 alias java21="set -x JAVA_HOME (/usr/libexec/java_home -v21)"
+alias java22="set -x JAVA_HOME (/usr/libexec/java_home -v22)"
 # nvim minimal
 alias vim='nvim --clean -u /Users/henry/.config/nvim-minimal/init.lua'
 # python3
