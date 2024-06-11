@@ -17,9 +17,9 @@ vim.g.python3_host_prog = "/opt/homebrew/bin/python3.11"
 -- NOTE: You can change these options as you wish!
 
 -- Set fold method
-vim.opt.foldmethod = "expr"
-vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
-vim.cmd([[ set nofoldenable ]])
+--vim.opt.foldmethod = "expr"
+--vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+--vim.cmd([[ set nofoldenable ]])
 
 -- Set highlight on search
 vim.o.hlsearch = true
