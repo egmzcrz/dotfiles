@@ -1,3 +1,6 @@
+-- Set runtime path to point to nvim-minimal directory
+vim.api.nvim_command('set runtimepath^=/Users/henry/.config/nvim-minimal/')
+
 -- Set <space> as the leader key
 -- See `:help mapleader`
 --  NOTE: Must happen before plugins are required (otherwise wrong leader will be used)
@@ -104,4 +107,4 @@ vim.keymap.set("n", "ñ", "/\\c")
 vim.keymap.set("n", "<Space>h", ":noh<CR>")
 
 -- colorscheme
---vim.cmd.colorscheme('desert')
+vim.cmd.colorscheme('onedark')
