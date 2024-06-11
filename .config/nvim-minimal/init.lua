@@ -26,7 +26,7 @@ vim.o.hlsearch = true
 
 -- Make line numbers default
 vim.wo.number = true
-vim.wo.relativenumber = true
+--vim.wo.relativenumber = true
 
 -- Enable mouse mode
 vim.o.mouse = 'a'
@@ -60,13 +60,13 @@ vim.o.completeopt = 'menuone,noselect'
 vim.o.termguicolors = true
 
 -- Netrw (if not disabled)
-vim.g.netrw_browse_split = 0
-vim.g.netrw_banner = 0
-vim.g.netrw_winsize = 25
-vim.g.netrw_bufsettings = 'noma nomod nu nobl nowrap ro'
-vim.g.netrw_liststyle = 3
-vim.g.netrw_hide = 1
-vim.g.netrw_list_hide = '\\(^\\|\\s\\s\\)\\zs\\.\\S\\+'
+--vim.g.netrw_browse_split = 0
+--vim.g.netrw_banner = 0
+--vim.g.netrw_winsize = 25
+--vim.g.netrw_bufsettings = 'noma nomod nu nobl nowrap ro'
+--vim.g.netrw_liststyle = 3
+--vim.g.netrw_hide = 1
+--vim.g.netrw_list_hide = '\\(^\\|\\s\\s\\)\\zs\\.\\S\\+'
 
 -- Tabs and spaces
 vim.opt.tabstop = 4
