@@ -7,7 +7,12 @@ require('nvim-treesitter.configs').setup {
     -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
     auto_install = false,
 
-    highlight = { enable = true },
+    highlight = {
+        enable = true,
+        disable = function(lang, bufnr) -- Disable in files with more than 10K
+            return vim.api.nvim_buf_line_count(bufnr) > 10000
+        end,
+    },
     indent = { enable = true },
     incremental_selection = {
         enable = true,
