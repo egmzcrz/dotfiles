@@ -55,3 +55,10 @@ if &shell =~# 'fish$'
 endif
 
 set nobackup
+
+" Key mappings
+let mapleader = " "
+" Turn off highlight until the next search
+nnoremap <leader>h :noh<CR>
+" Ergonomic search for word
+nnoremap ñ /\c
