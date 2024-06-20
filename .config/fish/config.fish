@@ -44,6 +44,8 @@ alias java22="set -x JAVA_HOME (/usr/libexec/java_home -v22)"
 alias vim='nvim --clean -u /Users/henry/.config/nvim-minimal/init.lua'
 # python3
 alias python='python3'
+# R
+alias R='R --no-save'
 # exa
 alias ll='exa --long --icons --group-directories-first'
 # eigencard as podata
