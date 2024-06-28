@@ -108,3 +108,9 @@ vim.keymap.set("n", "<Space>h", ":noh<CR>")
 
 -- colorscheme
 vim.cmd.colorscheme('onedark')
+
+-- Smooth scrollwheel
+vim.keymap.set({"n", "v", "i"}, "<ScrollWheelLeft>", "z<Left>")
+vim.keymap.set({"n", "v", "i"}, "<ScrollWheelRight>", "z<Right>")
+vim.keymap.set({"n", "v", "i"}, "<ScrollWheelUp>", "<C-Y>")
+vim.keymap.set({"n", "v", "i"}, "<ScrollWheelDown>", "<C-E>")
