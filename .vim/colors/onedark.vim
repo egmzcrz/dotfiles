@@ -62,7 +62,7 @@ let g:colors_name="onedark"
 " < https://github.com/joshdick/onedark.vim/blob/main/README.md >
 " for more information.)
 if !exists("g:onedark_termcolors")
-  let g:onedark_termcolors = 16
+  let g:onedark_termcolors = 256
 endif
 
 " Not all terminals support italics properly. If yours does, opt-in.
