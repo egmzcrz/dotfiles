@@ -1,5 +1,5 @@
 -- Set runtime path to point to nvim-minimal directory
-vim.api.nvim_command('set runtimepath^=/Users/henry/.config/nvim-minimal/')
+vim.api.nvim_command('set runtimepath^=~/.config/nvim-minimal/')
 
 -- Set <space> as the leader key
 -- See `:help mapleader`

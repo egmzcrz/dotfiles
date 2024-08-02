@@ -15,7 +15,7 @@ set -gx FZF_DEFAULT_OPTS "--height 99% --layout=reverse --border --preview-windo
 set -gx FZF_CTRL_T_COMMAND $FZF_DEFAULT_COMMAND
 # ALT-C command
 set -gx FZF_ALT_C_COMMAND "fd --type d --hidden --follow --exclude .git --exclude node_modules . \$dir"
-set -gx FZF_ALT_C_OPTS "--preview 'exa --group-directories-first --long --header --icons {}'"
+set -gx FZF_ALT_C_OPTS "--preview 'lsd --group-directories-first --long --header {}'"
 # CTRL-R command
 set -gx FZF_CTRL_R_OPTS "
 --preview 'echo {}' --preview-window up:3:hidden:wrap
@@ -41,13 +41,14 @@ alias java17="set -x JAVA_HOME (/usr/libexec/java_home -v17)"
 alias java21="set -x JAVA_HOME (/usr/libexec/java_home -v21)"
 alias java22="set -x JAVA_HOME (/usr/libexec/java_home -v22)"
 # nvim minimal
-alias vim='nvim --clean -u /Users/henry/.config/nvim-minimal/init.lua'
+alias vim='nvim --clean -u ~/.config/nvim-minimal/init.lua'
 # python3
 alias python='python3'
 # R
 alias R='R --no-save'
-# exa
-alias ll='exa --long --icons --group-directories-first'
+# LSD
+alias ll='lsd --header --long --group-directories-first'
+alias ls='lsd'
 # eigencard as podata
 alias podata='eigencard.py -c "Reader\\(2\\)"'
 # config files
@@ -57,7 +58,8 @@ alias vimrc='vim ~/.config/nvim-minimal/init.lua'
 alias fishrc='nvim ~/.config/fish/config.fish'
 alias kittyrc='nvim ~/.config/kitty/kitty.conf'
 # dropbox quick access
-set DROPBOX /Users/henry/Library/CloudStorage/Dropbox
+#set DROPBOX ~/Library/CloudStorage/Dropbox
+set DROPBOX ~/Dropbox
 alias cl="cd $DROPBOX && pwd && ll"
 alias notas="cd $DROPBOX/notas/trabajo && nvim ."
 alias bin="cd $DROPBOX/bin/ && nvim ."
