@@ -6,6 +6,7 @@ TARGET_FILES=(
 	".vimrc"
 	".vim"
 	".editrc"
+	".inputrc"
 	".fdignore"
 	".config/nvim-minimal"
 	".config/nvim"
