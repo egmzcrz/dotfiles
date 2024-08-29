@@ -4,3 +4,14 @@ Library/*
 Library/CloudStorage/*
 !Library/CloudStorage/Dropbox
 .DS_Store
+.local
+.m2
+go
+.zsh_sessions
+.android
+.vscode
+.cache
+.gradle
+.vim/undodir
+.npm
+.dropbox
