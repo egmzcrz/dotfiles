@@ -16,3 +16,4 @@ python
 .vim/undodir
 .npm
 .dropbox
+.nvimlog
