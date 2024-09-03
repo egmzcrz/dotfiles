@@ -7,7 +7,7 @@ fish_hybrid_key_bindings
 #                 FZF (PatrickF1/fzf.fish)                 #
 ############################################################
 # To install keybindings and fuzzy completion: /opt/homebrew/opt/fzf/install
-bind -M insert "©" fzf-cd-widget # to use ALT-C properly on MAC-OS
+bind -M insert "ç" fzf-cd-widget # to use ALT-C properly on MAC-OS
 # FZF defaults
 set -gx FZF_DEFAULT_COMMAND "fd --type f --hidden --follow --exclude .git --exclude node_modules . \$dir"
 set -gx FZF_DEFAULT_OPTS "--height 99% --layout=reverse --border --preview-window down:15 --preview 'bat --color=always {}'"
