@@ -44,9 +44,4 @@ vim.keymap.set({"i"}, "<ScrollWheelLeft>", "<C-O>z<Left>")
 vim.keymap.set({"i"}, "<ScrollWheelRight>", "<C-O>z<Right>")
 
 -- Autoclose brackets
-vim.keymap.set({"i"}, "\"", "\"\"<left>")
-vim.keymap.set({"i"}, "\'", "\'\'<left>")
-vim.keymap.set({"i"}, "(", "()<left>")
-vim.keymap.set({"i"}, "[", "[]<left>")
-vim.keymap.set({"i"}, "{", "{}<left>")
 vim.keymap.set({"i"}, "{<CR>", "{<CR>}<ESC>O")
