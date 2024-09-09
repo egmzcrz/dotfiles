@@ -34,7 +34,12 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 vim.keymap.set({"n", "v"}, "<leader>a", ":Tabularize /", { desc = '[A]lign to char' })
 
 -- Smooth scrollwheel
-vim.keymap.set({"n", "v", "i"}, "<ScrollWheelLeft>", "z<Left>")
-vim.keymap.set({"n", "v", "i"}, "<ScrollWheelRight>", "z<Right>")
-vim.keymap.set({"n", "v", "i"}, "<ScrollWheelUp>", "<C-Y>")
-vim.keymap.set({"n", "v", "i"}, "<ScrollWheelDown>", "<C-E>")
+vim.keymap.set({"n", "v"}, "<ScrollWheelLeft>", "z<Left>")
+vim.keymap.set({"n", "v"}, "<ScrollWheelRight>", "z<Right>")
+vim.keymap.set({"n", "v"}, "<ScrollWheelUp>", "<C-Y>")
+vim.keymap.set({"n", "v"}, "<ScrollWheelDown>", "<C-E>")
+vim.keymap.set({"i"}, "<ScrollWheelUp>", "<C-O><C-Y>")
+vim.keymap.set({"i"}, "<ScrollWheelDown>", "<C-O><C-E>")
+vim.keymap.set({"i"}, "<ScrollWheelLeft>", "<C-O>z<Left>")
+vim.keymap.set({"i"}, "<ScrollWheelRight>", "<C-O>z<Right>")
+
