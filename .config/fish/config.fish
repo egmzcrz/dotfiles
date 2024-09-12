@@ -31,40 +31,40 @@ set -gx EDITOR nvim
 set -gx VISUAL nvim
 
 ############################################################
-#                          ALIAS                           #
+#                          ABBR                            #
 ############################################################
 # source this config file
-alias so='source ~/.config/fish/config.fish'
+abbr so 'source ~/.config/fish/config.fish'
 # Java home
-alias java11="set -x JAVA_HOME (/usr/libexec/java_home -v11)"
-alias java17="set -x JAVA_HOME (/usr/libexec/java_home -v17)"
-alias java21="set -x JAVA_HOME (/usr/libexec/java_home -v21)"
-alias java22="set -x JAVA_HOME (/usr/libexec/java_home -v22)"
+abbr java11 'set -x JAVA_HOME (/usr/libexec/java_home -v11)'
+abbr java17 'set -x JAVA_HOME (/usr/libexec/java_home -v17)'
+abbr java21 'set -x JAVA_HOME (/usr/libexec/java_home -v21)'
+abbr java22 'set -x JAVA_HOME (/usr/libexec/java_home -v22)'
 # nvim minimal
-alias vim='nvim --clean -u ~/.config/nvim-minimal/init.lua'
+abbr vim 'nvim --clean -u ~/.config/nvim-minimal/init.lua'
 # python3
-alias python='python3'
+abbr python 'python3'
 # R
-alias R='R --no-save'
+abbr R 'R --no-save'
 # LSD
-alias ll='lsd --header --long --group-directories-first'
-alias ls='lsd'
+abbr ll 'lsd --header --long --group-directories-first'
+abbr ls 'lsd'
 # eigencard as podata
-alias podata='eigencard.py -c "Reader\\(2\\)"'
+abbr podata 'eigencard.py -c "Reader\\(2\\)"'
 # config files
-alias dotfiles='cd ~/dotfiles/ && nvim .'
-alias nvimrc='cd ~/.config/nvim/ && nvim .'
-alias vimrc='vim ~/.config/nvim-minimal/init.lua'
-alias fishrc='nvim ~/.config/fish/config.fish'
-alias kittyrc='nvim ~/.config/kitty/kitty.conf'
+abbr dotfiles 'cd ~/dotfiles/ && nvim .'
+abbr nvimrc 'cd ~/.config/nvim/ && nvim .'
+abbr vimrc 'vim ~/.config/nvim-minimal/init.lua'
+abbr fishrc 'nvim ~/.config/fish/config.fish'
+abbr kittyrc 'nvim ~/.config/kitty/kitty.conf'
 # dropbox quick access
 #set DROPBOX ~/Library/CloudStorage/Dropbox
 set DROPBOX ~/Dropbox
-alias cl="cd $DROPBOX && pwd && ll"
-alias notas="cd $DROPBOX/notas/trabajo && nvim ."
-alias bin="cd $DROPBOX/bin/ && nvim ."
-alias org="open '/Applications/Emacs.app' --args '$DROPBOX/notas/org/'"
-alias pyscard="cd '$DROPBOX/dev/CDMX Ticketing Software/Pyscard scripts/' && nvim ."
+abbr cl "cd $DROPBOX && pwd && ll"
+abbr notas "cd $DROPBOX/notas/trabajo && nvim ."
+abbr bin "cd $DROPBOX/bin/ && nvim ."
+abbr org "open '/Applications/Emacs.app' --args '$DROPBOX/notas/org/'"
+abbr pyscard "cd '$DROPBOX/dev/CDMX Ticketing Software/Pyscard scripts/' && nvim ."
 
 # Find file and cd to parent dir
 function ff
