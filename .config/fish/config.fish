@@ -40,6 +40,7 @@ abbr java11 'set -x JAVA_HOME (/usr/libexec/java_home -v11)'
 abbr java17 'set -x JAVA_HOME (/usr/libexec/java_home -v17)'
 abbr java21 'set -x JAVA_HOME (/usr/libexec/java_home -v21)'
 abbr java22 'set -x JAVA_HOME (/usr/libexec/java_home -v22)'
+abbr java23 'set -x JAVA_HOME (/usr/libexec/java_home -v23)'
 # nvim minimal
 abbr vim 'nvim --clean -u ~/.config/nvim-minimal/init.lua'
 # python3
@@ -51,6 +52,7 @@ abbr ll 'lsd --header --long --group-directories-first'
 abbr ls 'lsd'
 # eigencard as podata
 abbr podata 'eigencard.py -c "Reader\\(2\\)"'
+abbr eigencard 'java -jar ~/Dropbox/bin/eigencard.jar'
 # config files
 abbr dotfiles 'cd ~/dotfiles/ && nvim .'
 abbr nvimrc 'cd ~/.config/nvim/ && nvim .'
