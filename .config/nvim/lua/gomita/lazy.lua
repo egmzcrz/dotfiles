@@ -55,6 +55,7 @@ require('lazy').setup({
         init = function()
             -- Use init for configuration, don't use the more common "config".
             vim.g.vimtex_view_method = 'skim'
+            vim.g.vimtex_compiler_latexmk = { options = { '--shell-escape' } }
         end
     },
 
