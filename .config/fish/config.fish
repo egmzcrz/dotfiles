@@ -66,6 +66,8 @@ abbr cl "cd $DROPBOX && pwd && ll"
 abbr notas "cd $DROPBOX/notas/trabajo && nvim ."
 abbr bin "cd $DROPBOX/bin/ && nvim ."
 abbr org "open '/Applications/Emacs.app' --args '$DROPBOX/notas/org/'"
+# utils
+abbr duh "du -ah . | sort -k1,1 -h | tail"
 
 # Find file and cd to parent dir
 function ff
