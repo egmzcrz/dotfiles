@@ -14,6 +14,7 @@ TARGET_FILES=(
 	".config/fish"
 	".config/doom"
 	".config/vifm"
+	".config/wezterm"
 )
 
 for dotfile in "${TARGET_FILES[@]}";do
