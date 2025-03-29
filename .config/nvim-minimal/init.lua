@@ -106,6 +106,12 @@ vim.keymap.set("n", "ñ", "/\\c")
 -- Turn off highlight until the next search
 vim.keymap.set("n", "<Space>h", ":noh<CR>")
 
+-- Keybinds to make split navigation easier.
+vim.keymap.set("n", "<C-h>", "<C-w><C-h>")
+vim.keymap.set("n", "<C-l>", "<C-w><C-l>")
+vim.keymap.set("n", "<C-j>", "<C-w><C-j>")
+vim.keymap.set("n", "<C-k>", "<C-w><C-k>")
+
 -- colorscheme
 vim.cmd.colorscheme("tokyonight")
 
