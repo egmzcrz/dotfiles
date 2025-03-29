@@ -10,10 +10,11 @@ TARGET_FILES=(
 	".fdignore"
 	".config/nvim-minimal"
 	".config/nvim"
-	".config/kitty"
 	".config/fish"
 	".config/doom"
 	".config/vifm"
+	".config/kitty"
+	".config/ghostty"
 	".config/wezterm"
 )
 
