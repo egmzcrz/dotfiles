@@ -1,11 +1,11 @@
 -- Set runtime path to point to nvim-minimal directory
-vim.api.nvim_command('set runtimepath^=~/.config/nvim-minimal/')
+vim.api.nvim_command("set runtimepath^=~/.config/nvim-minimal/")
 
 -- Set <space> as the leader key
 -- See `:help mapleader`
 --  NOTE: Must happen before plugins are required (otherwise wrong leader will be used)
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
 -- DISABLE Nvim tree file explorer
 -- disable netrw at the very start of your init.lua
@@ -32,12 +32,12 @@ vim.wo.number = true
 --vim.wo.relativenumber = true
 
 -- Enable mouse mode
-vim.o.mouse = 'a'
+vim.o.mouse = "a"
 
 -- Sync clipboard between OS and Neovim.
 --  Remove this option if you want your OS clipboard to remain independent.
 --  See `:help 'clipboard'`
-vim.o.clipboard = 'unnamedplus'
+vim.o.clipboard = "unnamedplus"
 
 -- Enable break indent
 vim.o.breakindent = true
@@ -50,14 +50,14 @@ vim.o.ignorecase = true
 vim.o.smartcase = true
 
 -- Keep signcolumn on by default
-vim.wo.signcolumn = 'yes'
+vim.wo.signcolumn = "yes"
 
 -- Decrease update time
 vim.o.updatetime = 250
 vim.o.timeoutlen = 300
 
 -- Set completeopt to have a better completion experience
-vim.o.completeopt = 'menuone,noselect'
+vim.o.completeopt = "menuone,noselect"
 
 -- NOTE: You should make sure your terminal supports this
 vim.o.termguicolors = true
@@ -87,18 +87,18 @@ vim.opt.undofile = false
 -- Keymaps for better default experience
 -- See `:help vim.keymap.set()`
 
-vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
+vim.keymap.set({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
 
 -- Page up/down movement
-vim.keymap.set({ 'n', 'v' }, '<C-d>', '<C-d>zz', { silent = true })
-vim.keymap.set({ 'n', 'v' }, '<C-u>', '<C-u>zz', { silent = true })
+vim.keymap.set({ "n", "v" }, "<C-d>", "<C-d>zz", { silent = true })
+vim.keymap.set({ "n", "v" }, "<C-u>", "<C-u>zz", { silent = true })
 
 -- Buffer remaps
-vim.keymap.set({ 'n' }, '<Space>x', ':bd<CR>', { silent = true, desc = 'Buffer Delete' })
+vim.keymap.set({ "n" }, "<Space>x", ":bd<CR>", { silent = true, desc = "Buffer Delete" })
 
 -- Remap for dealing with word wrap
-vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
-vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+vim.keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
 -- Ergonomic search for word
 vim.keymap.set("n", "ñ", "/\\c")
@@ -107,10 +107,10 @@ vim.keymap.set("n", "ñ", "/\\c")
 vim.keymap.set("n", "<Space>h", ":noh<CR>")
 
 -- colorscheme
-vim.cmd.colorscheme('onedark')
+vim.cmd.colorscheme("tokyonight")
 
 -- Smooth scrollwheel
-vim.keymap.set({"n", "v", "i"}, "<ScrollWheelLeft>", "z<Left>")
-vim.keymap.set({"n", "v", "i"}, "<ScrollWheelRight>", "z<Right>")
-vim.keymap.set({"n", "v", "i"}, "<ScrollWheelUp>", "<C-Y>")
-vim.keymap.set({"n", "v", "i"}, "<ScrollWheelDown>", "<C-E>")
+vim.keymap.set({ "n", "v", "i" }, "<ScrollWheelLeft>", "z<Left>")
+vim.keymap.set({ "n", "v", "i" }, "<ScrollWheelRight>", "z<Right>")
+vim.keymap.set({ "n", "v", "i" }, "<ScrollWheelUp>", "<C-Y>")
+vim.keymap.set({ "n", "v", "i" }, "<ScrollWheelDown>", "<C-E>")
