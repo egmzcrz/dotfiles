@@ -5,10 +5,20 @@ local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 
 -- This is where you actually apply your config choices
+--
+config.keys = {
+	-- Turn off the default CMD-m Hide action, allowing CMD-m to
+	-- be potentially recognized and handled by the tab
+	{
+		key = "+",
+		mods = "CMD",
+		action = wezterm.action.IncreaseFontSize,
+	},
+}
 
 -- For example, changing the color scheme:
 config.color_scheme = "Tokyo Night"
-config.font_size = 16
+config.font_size = 14
 
 config.window_frame = {
 	-- The font used in the tab bar.
