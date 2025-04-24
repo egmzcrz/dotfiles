@@ -109,4 +109,4 @@ function zipper
 end
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
-source ~/python/bin/activate.fish
+source ~/venv-main/bin/activate.fish
