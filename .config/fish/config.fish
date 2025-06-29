@@ -45,6 +45,8 @@ abbr java23 'set -x JAVA_HOME (/usr/libexec/java_home -v23)'
 abbr vim 'nvim --clean -u ~/.config/nvim-minimal/init.lua'
 # python3
 abbr python 'python3'
+# julia pluto
+abbr pluto 'julia -e "import Pluto; Pluto.run()"'
 # R
 abbr R 'R --no-save'
 # LSD
