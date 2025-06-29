@@ -88,7 +88,7 @@ vim.opt.confirm = true
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
 -- Ergonomic search for word
-vim.keymap.set("n", "ñ", "/")
+vim.keymap.set({ "n", "v" }, "ñ", "/")
 vim.keymap.set("c", "<C-ñ>", "<Enter>")
 
 -- Diagnostic keymaps
