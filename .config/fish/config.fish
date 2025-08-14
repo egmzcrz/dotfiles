@@ -70,6 +70,9 @@ abbr bin "cd $DROPBOX/bin/ && nvim ."
 abbr org "open '/Applications/Emacs.app' --args '$DROPBOX/notas/org/'"
 # utils
 abbr duh "du -ah . | sort -k1,1 -h | tail"
+# concat images
+abbr hcat convert +append
+abbr vcat convert -append
 
 # Find file and cd to parent dir
 function ff
