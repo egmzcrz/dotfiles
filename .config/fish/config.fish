@@ -74,6 +74,8 @@ abbr duh "du -ah . | sort -k1,1 -h | tail"
 # concat images
 abbr hcat convert +append
 abbr vcat convert -append
+# long2wide script
+abbr long2wide 'python ~/Dropbox/bin/long2wide.py'
 
 # Find file and cd to parent dir
 function ff
