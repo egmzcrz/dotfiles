@@ -39,3 +39,6 @@ selection-foreground = #c0caf5
 
 # Default is JetBrains Mono with Nerd Fonts
 font-size = 14
+
+keybind = super+'=decrease_font_size:1
+keybind = super+¿=increase_font_size:1
