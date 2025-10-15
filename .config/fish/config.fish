@@ -74,22 +74,25 @@ abbr long2wide "python ~/'$CLOUD'/dev/scripts/long2wide.py"
 # Fuzzy grep
 function fzg
     if set -q argv[1]
-        rg --line-number --no-heading --color=always --smart-case "$argv[1]" \
+        set filepath (rg --line-number --no-heading --color=always --smart-case "$argv[1]" \
             | fzf --ansi --preview-window "right:50%" \
             --preview-window ~8,+{2}-5 \
             --delimiter ':' -n 2.. \
             --preview "bat --color=always {1} --highlight-line {2}" \
-            --bind ctrl-k:preview-up,ctrl-j:preview-down
+            --bind ctrl-k:preview-up,ctrl-j:preview-down \
+            | awk -F':' '{print $1}')
+        nvim $filepath
     else
-        rg --line-number --no-heading --color=always --with-filename . \
+        set filepath (rg --line-number --no-heading --color=always --with-filename . \
             | fzf --ansi --preview-window "right:50%" \
             --preview-window ~8,+{2}-5 \
             --delimiter ':' -n 2.. \
             --preview "bat --color=always {1} --highlight-line {2}" \
-            --bind ctrl-k:preview-up,ctrl-j:preview-down
+            --bind ctrl-k:preview-up,ctrl-j:preview-down \
+            | awk -F':' '{print $1}')
+        nvim $filepath
     end
 end
-
 # Find file and cd to parent dir
 function ff
     set path (fzf)
