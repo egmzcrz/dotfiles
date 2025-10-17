@@ -60,7 +60,7 @@ abbr fishrc 'nvim ~/.config/fish/config.fish'
 abbr kittyrc 'nvim ~/.config/kitty/kitty.conf'
 # cloud storage quick access
 set CLOUD 'Google Drive/My Drive'
-abbr cl "cd ~/'$CLOUD' && pwd && ll"
+abbr cl "cd ~/'$CLOUD' && lsd --header --long --group-directories-first"
 abbr notas "cd ~/'$CLOUD'/notas/"
 abbr bin "cd ~/'$CLOUD'/dev/scripts/"
 # utils
