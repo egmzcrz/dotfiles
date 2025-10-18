@@ -71,29 +71,41 @@ abbr vcat convert -append
 # long2wide script
 abbr long2wide "python ~/'$CLOUD'/dev/scripts/long2wide.py"
 
-# Fuzzy grep
-function fzg
+# Fuzzy find word and edit file
+function fw
     if set -q argv[1]
-        set filepath (rg --line-number --no-heading --color=always --smart-case "$argv[1]" \
+        set result (rg --line-number --no-heading --color=always --smart-case "$argv[1]" \
             | fzf --ansi --preview-window "right:50%" \
             --preview-window ~8,+{2}-5 \
             --delimiter ':' -n 2.. \
             --preview "bat --color=always {1} --highlight-line {2}" \
             --bind ctrl-k:preview-up,ctrl-j:preview-down \
-            | awk -F':' '{print $1}')
-        nvim $filepath
+            --bind ctrl-u:preview-half-page-up,ctrl-d:preview-half-page-down)
+
+        set filepath (echo $result | awk -F':' '{print $1}')
+        set linenumber (echo $result | awk -F':' '{print $2}')
+
+        if test "$filepath" != ""
+            nvim +$linenumber $filepath
+        end
     else
-        set filepath (rg --line-number --no-heading --color=always --with-filename . \
+        set result (rg --line-number --no-heading --color=always --with-filename . \
             | fzf --ansi --preview-window "right:50%" \
             --preview-window ~8,+{2}-5 \
             --delimiter ':' -n 2.. \
             --preview "bat --color=always {1} --highlight-line {2}" \
             --bind ctrl-k:preview-up,ctrl-j:preview-down \
-            | awk -F':' '{print $1}')
-        nvim $filepath
+            --bind ctrl-u:preview-half-page-up,ctrl-d:preview-half-page-down)
+
+        set filepath (echo $result | awk -F':' '{print $1}')
+        set linenumber (echo $result | awk -F':' '{print $2}')
+
+        if test "$filepath" != ""
+            nvim +$linenumber $filepath
+        end
     end
 end
-# Find file and cd to parent dir
+# Fuzzy find file and cd to parent dir
 function ff
     set path (fzf)
     if test -n "$path"
