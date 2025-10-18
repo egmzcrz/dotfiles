@@ -75,7 +75,7 @@ abbr long2wide "python ~/'$CLOUD'/dev/scripts/long2wide.py"
 function fw
     if set -q argv[1]
         set result (rg --line-number --no-heading --color=always --smart-case "$argv[1]" \
-            | fzf --ansi --preview-window "right:50%" \
+            | fzf --ansi --preview-window "bottom:80%" \
             --preview-window ~8,+{2}-5 \
             --delimiter ':' -n 2.. \
             --preview "bat --color=always {1} --highlight-line {2}" \
@@ -90,7 +90,7 @@ function fw
         end
     else
         set result (rg --line-number --no-heading --color=always --with-filename . \
-            | fzf --ansi --preview-window "right:50%" \
+            | fzf --ansi --preview-window "bottom:80%" \
             --preview-window ~8,+{2}-5 \
             --delimiter ':' -n 2.. \
             --preview "bat --color=always {1} --highlight-line {2}" \
