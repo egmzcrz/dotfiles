@@ -31,7 +31,7 @@ set -gx EDITOR nvim
 set -gx VISUAL nvim
 
 ############################################################
-#                          ABBR                            #
+#                       ABBR/ALIAS                         #
 ############################################################
 # source this config file
 abbr so 'source ~/.config/fish/config.fish'
@@ -70,6 +70,8 @@ abbr hcat convert +append
 abbr vcat convert -append
 # long2wide script
 abbr long2wide "python ~/'$CLOUD'/dev/scripts/long2wide.py"
+# Bulk rename inside VIM
+abbr rename qmv -f do
 
 # Fuzzy find word and edit file
 function fw
