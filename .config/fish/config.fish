@@ -72,6 +72,8 @@ abbr vcat convert -append
 abbr long2wide "python ~/'$CLOUD'/dev/scripts/long2wide.py"
 # Bulk rename inside VIM
 abbr rename "qmv -f do"
+# Pandoc
+abbr pandoc "pandoc --template=eisvogel.latex"
 
 # Fuzzy find word and edit file
 function fw
