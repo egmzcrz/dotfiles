@@ -1,7 +1,7 @@
 ############################################################
 #                 Vim + Emacs keybindings                  #
 ############################################################
-fish_hybrid_key_bindings
+set --global fish_key_bindings fish_hybrid_key_bindings
 
 ############################################################
 #                 FZF (PatrickF1/fzf.fish)                 #
@@ -73,7 +73,7 @@ abbr long2wide "python ~/'$CLOUD'/dev/scripts/long2wide.py"
 # Bulk rename inside VIM
 abbr rename "qmv -f do"
 # Pandoc
-abbr pandoc "pandoc --template=eisvogel.latex"
+abbr pandoc "pandoc --template=eisvogel.latex -s -f markdown"
 
 # Fuzzy find word and edit file
 function fw
