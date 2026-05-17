@@ -59,17 +59,17 @@ abbr vimrc 'vim ~/.config/nvim-minimal/init.lua'
 abbr fishrc 'nvim ~/.config/fish/config.fish'
 abbr kittyrc 'nvim ~/.config/kitty/kitty.conf'
 # cloud storage quick access
-set CLOUD 'Google Drive/My Drive'
-abbr cl "cd ~/'$CLOUD' && lsd --header --long --group-directories-first"
-abbr notas "cd ~/'$CLOUD'/notas/"
-abbr bin "cd ~/'$CLOUD'/dev/scripts/"
+set CLOUD GDrive
+abbr cl "cd ~/$CLOUD && lsd --header --long --group-directories-first"
+abbr notas "cd ~/$CLOUD/notas/"
+abbr bin "cd ~/$CLOUD/dev/scripts/"
 # utils
 abbr duh "du -ah . | sort -k1,1 -h | tail"
 # concat images
 abbr hcat convert +append
 abbr vcat convert -append
 # long2wide script
-abbr long2wide "python ~/'$CLOUD'/dev/scripts/long2wide.py"
+abbr long2wide "python ~/$CLOUD/dev/scripts/long2wide.py"
 # Bulk rename inside VIM
 abbr rename "qmv -f do"
 # Pandoc
