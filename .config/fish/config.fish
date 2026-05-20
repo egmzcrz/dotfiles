@@ -77,38 +77,36 @@ abbr pandoc "pandoc --template=eisvogel.latex -s -f markdown"
 
 # Fuzzy find word and edit file
 function fw
+    # Performance: skip large files and binary blobs to keep rg fast
+    set -l rg_opts \
+        --line-number --no-heading --color=always --smart-case \
+        --max-filesize 1M \
+        --glob '!node_modules' \
+        --glob '!.git' \
+        --glob '!*.{jpg,jpeg,png,gif,ico,svg,webp,pdf,tar,gz,bz2,xz,7z,zip,mp4,mov,avi,mkv,mp3,wav,flac,ogg,ttf,woff,woff2,eot,otf,wasm,o,a,so,dylib,class,pyc,lock,bin,dat,db,sqlite}'
+
+    # Build the search pattern: use the argument if given, otherwise match everything
     if set -q argv[1]
-        set result (rg --line-number --no-heading --color=always --smart-case "$argv[1]" \
-            | fzf --ansi --preview-window "bottom:80%" \
-            --preview-window ~8,+{2}-5 \
-            --delimiter ':' -n 2.. \
-            --preview "bat --color=always {1} --highlight-line {2}" \
-            --bind ctrl-k:preview-up,ctrl-j:preview-down \
-            --bind ctrl-u:preview-half-page-up,ctrl-d:preview-half-page-down)
-
-        set filepath (echo $result | awk -F':' '{print $1}')
-        set linenumber (echo $result | awk -F':' '{print $2}')
-
-        if test "$filepath" != ""
-            nvim +$linenumber $filepath
-        end
+        set -l pattern "$argv[1]"
     else
-        set result (rg --line-number --no-heading --color=always --with-filename . \
-            | fzf --ansi --preview-window "bottom:80%" \
-            --preview-window ~8,+{2}-5 \
+        set -l pattern .
+    end
+
+    set result (rg $rg_opts "$pattern" \
+        | fzf --ansi \
             --delimiter ':' -n 2.. \
+            --preview-window ~8,+{2}-5 \
             --preview "bat --color=always {1} --highlight-line {2}" \
             --bind ctrl-k:preview-up,ctrl-j:preview-down \
             --bind ctrl-u:preview-half-page-up,ctrl-d:preview-half-page-down)
 
+    if test -n "$result"
         set filepath (echo $result | awk -F':' '{print $1}')
         set linenumber (echo $result | awk -F':' '{print $2}')
-
-        if test "$filepath" != ""
-            nvim +$linenumber $filepath
-        end
+        nvim +$linenumber $filepath
     end
 end
+
 # Fuzzy find file and cd to parent dir
 function ff
     set path (fzf)
