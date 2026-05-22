@@ -58,11 +58,18 @@ abbr nvimrc 'cd ~/.config/nvim/ && nvim .'
 abbr vimrc 'vim ~/.config/nvim-minimal/init.lua'
 abbr fishrc 'nvim ~/.config/fish/config.fish'
 abbr kittyrc 'nvim ~/.config/kitty/kitty.conf'
-# cloud storage quick access
+# quick access
 set CLOUD GDrive
-abbr cl "cd ~/$CLOUD && lsd --header --long --group-directories-first"
-abbr notas "cd ~/$CLOUD/notas/"
-abbr bin "cd ~/$CLOUD/dev/scripts/"
+abbr cl "cd ~/GDrive && lsd --header --long --group-directories-first"
+abbr bin "cd ~/GDrive/dev/scripts/"
+abbr down "cd ~/Downloads/"
+abbr dow "cd ~/Downloads/"
+abbr docs "cd ~/Documents/"
+abbr doc "cd ~/Documents/"
+abbr desk "cd ~/Desktop/"
+abbr note "cd ~/GDrive/notas/trabajo/"
+abbr notas "cd ~/GDrive/notas/trabajo/"
+abbr nota "cd ~/GDrive/notas/trabajo/"
 # utils
 abbr duh "du -ah . | sort -k1,1 -h | tail"
 # concat images
