@@ -11,11 +11,7 @@ TARGET_FILES=(
   ".config/nvim-minimal"
   ".config/nvim"
   ".config/fish"
-  ".config/doom"
-  ".config/vifm"
-  ".config/kitty"
   ".config/ghostty"
-  ".config/wezterm"
 )
 
 for dotfile in "${TARGET_FILES[@]}"; do
