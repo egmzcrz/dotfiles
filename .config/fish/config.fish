@@ -41,6 +41,7 @@ abbr java17 'set -x JAVA_HOME (/usr/libexec/java_home -v17)'
 abbr java21 'set -x JAVA_HOME (/usr/libexec/java_home -v21)'
 abbr java22 'set -x JAVA_HOME (/usr/libexec/java_home -v22)'
 abbr java23 'set -x JAVA_HOME (/usr/libexec/java_home -v23)'
+abbr java26 'set -x JAVA_HOME (/usr/libexec/java_home -v26)'
 # nvim minimal
 abbr vim 'nvim --clean -u ~/.config/nvim-minimal/init.lua'
 # python3
