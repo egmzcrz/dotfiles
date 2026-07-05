@@ -31,14 +31,12 @@ cursor-color = #c0caf5
 selection-background = #283457
 selection-foreground = #c0caf5
 
-
-
 ###############################
 # Font
 ###############################
 
 # Default is JetBrains Mono with Nerd Fonts
-font-size = 14
+font-size = 12
 
 keybind = super+'=decrease_font_size:1
 keybind = super+¿=increase_font_size:1
@@ -59,7 +57,16 @@ keybind = super+a>k=new_split:up
 keybind = super+a>l=new_split:right
 keybind = super+z=toggle_split_zoom
 
+###############################
+# General Keybindings
+###############################
 keybind = super+r=reload_config
+# Config keybinding
+keybind = super+,=text:ghostty +edit-config\n
+# ESC keybinding
+keybind = ctrl+{=text:\x1b
+# Tab naming
+keybind = super+shift+t=prompt_tab_title
 
 unfocused-split-opacity = 0.3
 
