@@ -81,6 +81,8 @@ abbr long2wide "python ~/$CLOUD/dev/scripts/long2wide.py"
 abbr rename "qmv -f do"
 # Pandoc
 abbr pandoc "pandoc --template=eisvogel.latex -s -f markdown"
+# Claude Code
+abbr claude "claude --dangerously-skip-permissions"
 
 # Fuzzy find word and edit file
 function fw
