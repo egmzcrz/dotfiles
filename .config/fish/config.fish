@@ -152,5 +152,7 @@ function zipper
     zip -x \*.DS_Store -x \*__MACOSX -r $filename.zip $argv[1]
 end
 
+# init commands
+starship init fish | source
 eval "$(/opt/homebrew/bin/brew shellenv)"
 source ~/venv-main/bin/activate.fish
