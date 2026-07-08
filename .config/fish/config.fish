@@ -62,7 +62,8 @@ abbr kittyrc 'nvim ~/.config/kitty/kitty.conf'
 # quick access
 set CLOUD "Library/CloudStorage/GoogleDrive-enriquegomezcruz@gmail.com/'My Drive'"
 abbr cl "cd ~/$CLOUD && lsd --header --long --group-directories-first"
-abbr bin "cd ~/$CLOUD/dev/scripts/"
+abbr bin "cd ~/$CLOUD/bin/"
+abbr pyscard "cd ~/$CLOUD/dev/pyscard"
 abbr down "cd ~/Downloads/"
 abbr dow "cd ~/Downloads/"
 abbr docs "cd ~/Documents/"
