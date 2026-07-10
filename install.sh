@@ -8,6 +8,7 @@ TARGET_FILES=(
   ".editrc"
   ".inputrc"
   ".fdignore"
+  ".rgignore"
   ".config/nvim-minimal"
   ".config/nvim"
   ".config/fish"
