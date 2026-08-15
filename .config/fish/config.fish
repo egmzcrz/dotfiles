@@ -54,7 +54,7 @@ abbr R 'R --no-save'
 abbr ll 'lsd --header --long --group-directories-first'
 abbr ls lsd
 # config files
-abbr dotfiles 'cd ~/dotfiles/ && nvim .'
+abbr dotfiles 'cd ~/dotfiles/'
 abbr nvimrc 'cd ~/.config/nvim/ && nvim .'
 abbr vimrc 'vim ~/.config/nvim-minimal/init.lua'
 abbr fishrc 'nvim ~/.config/fish/config.fish'
@@ -85,6 +85,7 @@ abbr rename "qmv -f do"
 abbr pandoc "pandoc --template=eisvogel.latex -s -f markdown"
 # Claude Code
 abbr claude "claude --dangerously-skip-permissions"
+# QR decode
 abbr qr "zbarimg --quiet --raw"
 
 # Fuzzy find word and edit file

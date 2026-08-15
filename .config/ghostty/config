@@ -66,6 +66,7 @@ keybind = super+,=text:ghostty +edit-config\n
 # ESC keybinding
 keybind = ctrl+{=text:\x1b
 keybind = ctrl+ñ=text:\x1b
+keybind = ctrl+ =text:\x1b
 # Tab naming
 keybind = super+shift+t=prompt_tab_title
 
