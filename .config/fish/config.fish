@@ -85,6 +85,7 @@ abbr rename "qmv -f do"
 abbr pandoc "pandoc --template=eisvogel.latex -s -f markdown"
 # Claude Code
 abbr claude "claude --dangerously-skip-permissions"
+abbr qr "zbarimg --quiet --raw"
 
 # Fuzzy find word and edit file
 function fw
