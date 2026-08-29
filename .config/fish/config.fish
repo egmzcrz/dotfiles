@@ -86,7 +86,8 @@ abbr pandoc "pandoc --template=eisvogel.latex -s -f markdown"
 # Claude Code
 abbr claude "claude --dangerously-skip-permissions"
 # QR decode
-abbr qr "zbarimg --quiet --raw"
+abbr qr2url "zbarimg --quiet --raw"
+abbr url2qr "qrencode -o qr-code.png"
 
 # Fuzzy find word and edit file
 function fw
