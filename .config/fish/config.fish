@@ -4,18 +4,31 @@
 set --global fish_key_bindings fish_hybrid_key_bindings
 
 ############################################################
-#                 FZF (PatrickF1/fzf.fish)                 #
+#                        Homebrew                          #
 ############################################################
-# To install keybindings and fuzzy completion: /opt/homebrew/opt/fzf/install
-bind -M insert ç fzf-cd-widget # to use ALT-C properly on MAC-OS
+# First: everything below resolves its binaries through PATH
+/opt/homebrew/bin/brew shellenv | source
+
+############################################################
+#                  Nvim as default editor                  #
+############################################################
+set -gx EDITOR nvim
+set -gx VISUAL nvim
+
+############################################################
+#                    FZF (homebrew fzf)                    #
+############################################################
+# functions/fzf_key_bindings.fish is a symlink into
+# /opt/homebrew/opt/fzf/shell/; it is invoked from
+# functions/fish_user_key_bindings.fish, which also holds the binds
 # FZF defaults
-set -gx FZF_DEFAULT_COMMAND "fd --type f --hidden --follow --exclude .git --exclude node_modules . \$dir"
-set -gx FZF_DEFAULT_OPTS "--height 99% --layout=reverse --border --preview-window down:15 --preview 'bat --color=always {}'"
+set -gx FZF_DEFAULT_COMMAND "fd --type f --hidden --follow --exclude .git --exclude node_modules"
+set -gx FZF_DEFAULT_OPTS "--height 99% --layout=reverse --border --preview-window down:70% --preview '~/.config/fish/fzf-preview.sh {}'"
 # CTRL-T command
 set -gx FZF_CTRL_T_COMMAND $FZF_DEFAULT_COMMAND
 # ALT-C command
-set -gx FZF_ALT_C_COMMAND "fd --type d --follow --exclude .git --exclude node_modules . \$dir"
-set -gx FZF_ALT_C_OPTS "--preview 'lsd --group-directories-first --long --header {}'"
+set -gx FZF_ALT_C_COMMAND "fd --type d --follow --exclude .git --exclude node_modules"
+set -gx FZF_ALT_C_OPTS "--preview 'lsd --color=always --group-directories-first --long --header {}'"
 # CTRL-R command
 set -gx FZF_CTRL_R_OPTS "
 --preview 'echo {}' --preview-window up:3:hidden:wrap
@@ -25,157 +38,181 @@ set -gx FZF_CTRL_R_OPTS "
 --header 'Press CTRL-Y to copy command into clipboard'"
 
 ############################################################
-#                  Nvim as default editor                  #
+#                    Quick access paths                    #
 ############################################################
-set -gx EDITOR nvim
-set -gx VISUAL nvim
+# Kept unquoted here and quoted at the point of use, so the space
+# in "My Drive" survives without embedding quotes in the value
+set -g CLOUD "$HOME/Library/CloudStorage/GoogleDrive-enriquegomezcruz@gmail.com/My Drive"
 
 ############################################################
 #                       ABBR/ALIAS                         #
 ############################################################
-# source this config file
-abbr so 'source ~/.config/fish/config.fish'
-# Java home
-abbr java11 'set -x JAVA_HOME (/usr/libexec/java_home -v11)'
-abbr java17 'set -x JAVA_HOME (/usr/libexec/java_home -v17)'
-abbr java21 'set -x JAVA_HOME (/usr/libexec/java_home -v21)'
-abbr java22 'set -x JAVA_HOME (/usr/libexec/java_home -v22)'
-abbr java23 'set -x JAVA_HOME (/usr/libexec/java_home -v23)'
-abbr java26 'set -x JAVA_HOME (/usr/libexec/java_home -v26)'
-# nvim minimal
-abbr vim 'nvim --clean -u ~/.config/nvim-minimal/init.lua'
-# python3
-abbr python python3
-# julia pluto
-abbr pluto 'julia -e "import Pluto; Pluto.run()"'
-# R
-abbr R 'R --no-save'
-# LSD
-abbr ll 'lsd --header --long --group-directories-first'
-abbr ls lsd
-# config files
-abbr dotfiles 'cd ~/dotfiles/'
-abbr nvimrc 'cd ~/.config/nvim/ && nvim .'
-abbr vimrc 'vim ~/.config/nvim-minimal/init.lua'
-abbr fishrc 'nvim ~/.config/fish/config.fish'
-abbr kittyrc 'nvim ~/.config/kitty/kitty.conf'
-# quick access
-set CLOUD "Library/CloudStorage/GoogleDrive-enriquegomezcruz@gmail.com/'My Drive'"
-abbr cl "cd ~/$CLOUD && lsd --header --long --group-directories-first"
-abbr bin "cd ~/$CLOUD/bin/"
-abbr pyscard "cd ~/$CLOUD/dev/pyscard"
-abbr down "cd ~/Downloads/"
-abbr dow "cd ~/Downloads/"
-abbr docs "cd ~/Documents/"
-abbr doc "cd ~/Documents/"
-abbr desk "cd ~/Desktop/"
-abbr note "cd ~/$CLOUD/notas/trabajo/"
-abbr notas "cd ~/$CLOUD/notas/trabajo/"
-abbr nota "cd ~/$CLOUD/notas/trabajo/"
-# utils
-abbr duh "du -ah . | sort -k1,1 -h | tail"
-# concat images
-abbr hcat convert +append
-abbr vcat convert -append
-# long2wide script
-abbr long2wide "python ~/$CLOUD/dev/scripts/long2wide.py"
-# Bulk rename inside VIM
-abbr rename "qmv -f do"
-# Pandoc
-abbr pandoc "pandoc --template=eisvogel.latex -s -f markdown"
-# Claude Code
-abbr sonnet "claude --dangerously-skip-permissions --model sonnet"
-abbr opus "claude --dangerously-skip-permissions --model opus"
-# QR decode
-abbr qr2url "zbarimg --quiet --raw"
-abbr url2qr "qrencode -o qr-code.png"
+if status is-interactive
+    # source this config file
+    abbr so 'source ~/.config/fish/config.fish'
+    # Java home
+    abbr java11 'set -x JAVA_HOME (/usr/libexec/java_home -v11)'
+    abbr java17 'set -x JAVA_HOME (/usr/libexec/java_home -v17)'
+    abbr java21 'set -x JAVA_HOME (/usr/libexec/java_home -v21)'
+    abbr java22 'set -x JAVA_HOME (/usr/libexec/java_home -v22)'
+    abbr java23 'set -x JAVA_HOME (/usr/libexec/java_home -v23)'
+    abbr java26 'set -x JAVA_HOME (/usr/libexec/java_home -v26)'
+    # nvim minimal
+    abbr vim 'nvim --clean -u ~/.config/nvim-minimal/init.lua'
+    # python3
+    abbr python python3
+    # julia pluto
+    abbr pluto 'julia -e "import Pluto; Pluto.run()"'
+    # R
+    abbr R 'R --no-save'
+    # LSD
+    abbr ll 'lsd --header --long --group-directories-first'
+    abbr ls lsd
+    # config files
+    abbr dotfiles 'cd ~/dotfiles/'
+    abbr nvimrc 'cd ~/.config/nvim/ && nvim .'
+    abbr vimrc 'vim ~/.config/nvim-minimal/init.lua'
+    abbr fishrc 'nvim ~/.config/fish/config.fish'
+    abbr kittyrc 'nvim ~/.config/kitty/kitty.conf'
+    # quick access (single quotes: $CLOUD expands when the line runs)
+    abbr cl 'cd "$CLOUD" && lsd --header --long --group-directories-first'
+    abbr bin 'cd "$CLOUD/bin/"'
+    abbr pyscard 'cd "$CLOUD/dev/pyscard"'
+    abbr down 'cd ~/Downloads/'
+    abbr dow 'cd ~/Downloads/'
+    abbr docs 'cd ~/Documents/'
+    abbr doc 'cd ~/Documents/'
+    abbr desk 'cd ~/Desktop/'
+    abbr note 'cd "$CLOUD/notas/trabajo/"'
+    abbr notas 'cd "$CLOUD/notas/trabajo/"'
+    abbr nota 'cd "$CLOUD/notas/trabajo/"'
+    # utils
+    abbr duh "du -ah . | sort -k1,1 -h | tail"
+    # concat images
+    abbr hcat convert +append
+    abbr vcat convert -append
+    # long2wide script
+    abbr long2wide 'python "$CLOUD/bin/long2wide.py"'
+    # Bulk rename inside VIM
+    abbr rename "qmv -f do"
+    # Pandoc
+    abbr pandoc "pandoc --template=eisvogel.latex -s -f markdown"
+    # Claude Code
+    abbr sonnet "claude --dangerously-skip-permissions --model sonnet"
+    abbr opus "claude --dangerously-skip-permissions --model opus"
+    # QR decode
+    abbr qr2url "zbarimg --quiet --raw"
+    abbr url2qr "qrencode -o qr-code.png"
+end
 
 # Fuzzy find word and edit file
-function fw
+function fw --description 'Fuzzy find a word across files, open the match in nvim'
+    # rg prints PATH:LINE:TEXT, which is ambiguous when a path contains a
+    # colon. Ask for an ASCII Unit Separator between fields instead, so the
+    # parse below cannot be fooled.
+    set -l sep \x1f
+
     # Performance: skip large files and binary blobs to keep rg fast
     set -l rg_opts \
         --line-number --no-heading --color=always --smart-case \
         --max-filesize 1M \
+        --field-match-separator '\x1f' \
         --glob '!node_modules' \
         --glob '!.git' \
         --glob '!*.{jpg,jpeg,png,gif,ico,svg,webp,pdf,tar,gz,bz2,xz,7z,zip,mp4,mov,avi,mkv,mp3,wav,flac,ogg,ttf,woff,woff2,eot,otf,wasm,o,a,so,dylib,class,pyc,lock,bin,dat,db,sqlite}'
 
-    # Build the search pattern: use the argument if given, otherwise match everything
+    # Search for the argument if given, otherwise match everything.
+    # Declared before the if: `set -l` inside a block does not escape it.
+    set -l pattern .
     if set -q argv[1]
-        set -l pattern "$argv[1]"
-    else
-        set -l pattern .
+        set pattern $argv[1]
     end
 
-    set result (rg $rg_opts "$pattern" \
+    # `--` so a pattern starting with a dash is not read as an rg flag
+    set -l result (rg $rg_opts -- "$pattern" \
         | fzf --ansi \
-            --delimiter ':' -n 2.. \
+            --delimiter $sep -n 2.. \
             --preview-window ~8,+{2}-5 \
             --preview "bat --color=always {1} --highlight-line {2}" \
             --bind ctrl-k:preview-up,ctrl-j:preview-down \
             --bind ctrl-u:preview-half-page-up,ctrl-d:preview-half-page-down)
 
-    if test -n "$result"
-        set filepath (echo $result | awk -F':' '{print $1}')
-        set linenumber (echo $result | awk -F':' '{print $2}')
-        nvim +$linenumber $filepath
-    end
+    test -n "$result"; or return
+
+    set -l parts (string split -m 2 $sep -- $result)
+    test (count $parts) -ge 2; or return
+    nvim +$parts[2] -- $parts[1]
 end
 
 # Fuzzy find file and cd to parent dir
-function ff
+function ff --description 'Fuzzy find a file, cd to its parent directory'
     set -l selected (fzf)
-    if test -n "$selected"
-        set -l real (realpath -- $selected)
-        echo $real
-        cd -- (dirname -- $real)
-    end
+    # fzf has exited: clear any preview image before it outlives the picker
+    __fzf_clear_images
+    test -n "$selected"; or return
+    set -l real (path resolve -- $selected)
+    echo $real
+    cd -- (path dirname -- $real)
 end
 
 # Fuzzy find file and open file
-function fo
+function fo --description 'Fuzzy find a file and open it'
     set -l selected (fzf)
-    if test -n "$selected"
-        set -l real (realpath -- $selected)
-        echo $real
-        open -- $real
+    # fzf has exited: clear any preview image before it outlives the picker
+    __fzf_clear_images
+    test -n "$selected"; or return
+    set -l real (path resolve -- $selected)
+    echo $real
+    open -- $real
+end
+
+# Draw a box around some text (requires `brew install boxes`)
+function __box --description 'Shared implementation for the box* helpers'
+    set -l design $argv[1]
+    set -l text $argv[2]
+    if test -z "$text"
+        echo "usage: (boxshell|boxtex|boxcpp) TEXT [SIZE]" >&2
+        return 1
+    end
+    if set -q argv[3]
+        echo $text | boxes -d $design -a hc -s $argv[3]
+    else
+        echo $text | boxes -d $design -a hc
     end
 end
 
 function boxshell
-    if set -q argv[2]
-        echo $argv[1] | boxes -d shell -a hc -s $argv[2]
-    else
-        echo $argv[1] | boxes -d shell -a hc
-    end
+    __box shell $argv
 end
 
 function boxtex
-    if set -q argv[2]
-        echo $argv[1] | boxes -d tex-box -a hc -s $argv[2]
-    else
-        echo $argv[1] | boxes -d tex-box -a hc
-    end
+    __box tex-box $argv
 end
 
 function boxcpp
-    if set -q argv[2]
-        echo $argv[1] | boxes -d jstone -a hc -s $argv[2]
-    else
-        echo $argv[1] | boxes -d jstone -a hc
-    end
+    __box jstone $argv
 end
 
 # zip without MAC-OS junk
-function zipper
-    set filename (basename $argv[1])
+function zipper --description 'Zip a file or directory without macOS metadata'
+    if not set -q argv[1]
+        echo "usage: zipper PATH" >&2
+        return 1
+    end
+    if not test -e "$argv[1]"
+        echo "zipper: no such file or directory: $argv[1]" >&2
+        return 1
+    end
+    # path basename strips any trailing slash for us
+    set -l filename (path basename -- $argv[1])
     zip -x \*.DS_Store -x \*__MACOSX -r $filename.zip $argv[1]
 end
 
 # init commands
-starship init fish | source
-eval "$(/opt/homebrew/bin/brew shellenv)"
-source ~/venv-main/bin/activate.fish
+if status is-interactive
+    starship init fish | source
+end
+test -f ~/venv-main/bin/activate.fish && source ~/venv-main/bin/activate.fish
 
 # Added by OrbStack: command-line tools and integration
 # This won't be added again if you remove it.
