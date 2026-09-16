@@ -124,9 +124,21 @@ end
 
 # Fuzzy find file and cd to parent dir
 function ff
-    set path (fzf)
-    if test -n "$path"
-        cd $(dirname $path)
+    set -l selected (fzf)
+    if test -n "$selected"
+        set -l real (realpath -- $selected)
+        echo $real
+        cd -- (dirname -- $real)
+    end
+end
+
+# Fuzzy find file and open file
+function fo
+    set -l selected (fzf)
+    if test -n "$selected"
+        set -l real (realpath -- $selected)
+        echo $real
+        open -- $real
     end
 end
 
