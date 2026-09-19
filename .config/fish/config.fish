@@ -100,6 +100,8 @@ if status is-interactive
     # Claude Code
     abbr sonnet "claude --dangerously-skip-permissions --model sonnet"
     abbr opus "claude --dangerously-skip-permissions --model opus"
+    # Codex
+    abbr codex codex --dangerously-bypass-approvals-and-sandbox
     # QR decode
     abbr qr2url "zbarimg --quiet --raw"
     abbr url2qr "qrencode -o qr-code.png"
