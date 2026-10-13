@@ -100,6 +100,9 @@ if status is-interactive
     # Claude Code
     abbr sonnet "claude --dangerously-skip-permissions --model sonnet"
     abbr opus "claude --dangerously-skip-permissions --model opus"
+    # Claude Code (cuenta de trabajo)
+    abbr sonnet-trabajo "env CLAUDE_CONFIG_DIR=$HOME/.claude-trabajo claude --dangerously-skip-permissions --model sonnet"
+    abbr opus-trabajo "env CLAUDE_CONFIG_DIR=$HOME/.claude-trabajo claude --dangerously-skip-permissions --model opus"
     # Codex
     abbr codex codex --dangerously-bypass-approvals-and-sandbox
     # QR decode
