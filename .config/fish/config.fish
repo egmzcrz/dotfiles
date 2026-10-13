@@ -76,23 +76,23 @@ if status is-interactive
     abbr kittyrc 'nvim ~/.config/kitty/kitty.conf'
     # quick access (single quotes: $CLOUD expands when the line runs)
     abbr cl 'cd "$CLOUD" && lsd --header --long --group-directories-first'
-    abbr bin 'cd "$CLOUD/bin/"'
-    abbr pyscard 'cd "$CLOUD/dev/pyscard"'
+    abbr bin 'cd "$CLOUD/40_dev/scripts/bin/"'
+    abbr pyscard 'cd "$CLOUD/40_dev/scripts/pyscard"'
     abbr down 'cd ~/Downloads/'
     abbr dow 'cd ~/Downloads/'
     abbr docs 'cd ~/Documents/'
     abbr doc 'cd ~/Documents/'
     abbr desk 'cd ~/Desktop/'
-    abbr note 'cd "$CLOUD/notas/trabajo/"'
-    abbr notas 'cd "$CLOUD/notas/trabajo/"'
-    abbr nota 'cd "$CLOUD/notas/trabajo/"'
+    abbr note 'cd "$CLOUD/50_notas/trabajo/"'
+    abbr notas 'cd "$CLOUD/50_notas/trabajo/"'
+    abbr nota 'cd "$CLOUD/50_notas/trabajo/"'
     # utils
     abbr duh "du -ah . | sort -k1,1 -h | tail"
     # concat images
     abbr hcat convert +append
     abbr vcat convert -append
     # long2wide script
-    abbr long2wide 'python "$CLOUD/bin/long2wide.py"'
+    abbr long2wide 'python "$CLOUD/40_dev/scripts/bin/long2wide.py"'
     # Bulk rename inside VIM
     abbr rename "qmv -f do"
     # Pandoc
