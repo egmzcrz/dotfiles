@@ -2,3 +2,4 @@
 .vim/undodir
 .nvimlog
 .config/fish/fish_variables
+jud/target/
