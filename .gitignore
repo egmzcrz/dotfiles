@@ -3,3 +3,22 @@
 .nvimlog
 .config/fish/fish_variables
 jud/target/
+
+# vim: netrw guarda en ~/.vim/.netrwhist las carpetas que visitas
+# (el mismo tipo de fuga que vifminfo.json)
+.vim/.netrwhist
+# Palabras añadidas al diccionario con zg: pueden incluir nombres y
+# términos de clientes. vim las guarda en ~/.vim/spell y nvim en ~/.config/nvim/spell
+.vim/spell/
+.config/nvim/spell/
+# Archivos temporales de vim al editar dentro del repo
+*.swp
+*.swo
+*~
+
+# Red de seguridad: credenciales que nunca deben subirse
+.env
+*.pem
+*.key
+id_rsa*
+id_ed25519*
