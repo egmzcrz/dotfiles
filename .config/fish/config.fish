@@ -8,6 +8,9 @@ set --global fish_key_bindings fish_hybrid_key_bindings
 ############################################################
 # First: everything below resolves its binaries through PATH
 /opt/homebrew/bin/brew shellenv | source
+# Binarios propios (p. ej. jud, compilado por install.sh). Global y no
+# universal: así no depende de fish_variables, que no está en el repo
+fish_add_path -g $HOME/.local/bin
 
 ############################################################
 #                  Nvim as default editor                  #
