@@ -43,9 +43,11 @@ set -gx FZF_CTRL_R_OPTS "
 ############################################################
 #                    Quick access paths                    #
 ############################################################
-# Kept unquoted here and quoted at the point of use, so the space
-# in "My Drive" survives without embedding quotes in the value
-set -g CLOUD "$HOME/Library/CloudStorage/GoogleDrive-enriquegomezcruz@gmail.com/My Drive"
+# The glob keeps the account email out of this (public) repo. Quoted
+# at the point of use, so the space in "My Drive" survives. If more
+# than one Google account is mounted, the first one wins
+set -g CLOUD $HOME/Library/CloudStorage/GoogleDrive-*/"My Drive"
+set -g CLOUD $CLOUD[1]
 
 ############################################################
 #                       ABBR/ALIAS                         #
